@@ -1,3 +1,6 @@
+from sys import argv
+script, input = argv
+
 log = print
 
 # chia de tri cai bai nay
