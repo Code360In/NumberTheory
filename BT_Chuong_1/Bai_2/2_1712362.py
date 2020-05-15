@@ -1,4 +1,9 @@
-def phanTichSoNguyenMang(n):
+log = print
+
+# chia de tri cai bai nay
+
+
+def phanTichSoNguyenThanhMang(n):
     i = 2
     listNumbers = []
     count = 0
@@ -17,7 +22,8 @@ def phanTichSoNguyenMang(n):
 
 
 # n = 120
-# arr = phanTichSoNguyenMang(n)
+# arr = phanTichSoNguyenThanhMang(n) # [2,2,2,3,5]
+# log(arr)
 
 
 def demPhanTuMang(mang):
@@ -30,7 +36,7 @@ def demPhanTuMang(mang):
     return count
 
 
-# listResult = demPhanTuMang(arr)
+# listResult = demPhanTuMang(arr) # {2:3,3:1,5:1}
 
 
 # print(listResult)
@@ -39,6 +45,7 @@ def demPhanTuMang(mang):
 def ketQua(listRs):
     result = ''
     for d in listRs.items():
+        # log(d)
         if d[1] > 1:
             result += str(d[0]) + '^' + str(d[1]) + '*'
         else:
@@ -46,24 +53,28 @@ def ketQua(listRs):
     return result[:-1]
 
 
-# print(ketQua(listResult))
+# print(ketQua(listResult)) - 2^3*3*5
 
 
 # doc file
-input = open('input.txt', 'r')
+fr = open('input.txt', 'r')
+lines = [line[:-1].split(' ') for line in fr.readlines()]
+fr.close()
+# log(lines)
+# log(data)
+
+# ghi file
+fw = open('2_1712362.txt', 'w')
+for l in lines:
+    # log(l[0])
+    arr = phanTichSoNguyenThanhMang(int(l[0]))
+    # log(arr)
+    listRs = demPhanTuMang(arr)
+    # log("List result:", listRs)
+    result = ketQua(listRs)
+    # log("Result:", result)
+
+    fw.write(result+"\n")
 
 
-lines = [line[:-1].split(' ') for line in input.readlines()]
-input.close()
-print(lines)
-print("Line lengt", lines.__len__())
-lengt = lines.__len__()
-
-# ghi ket qua
-output = open('result.txt', 'w')
-for i in range(0, lengt):
-print(i)
-listNumbers = phanTichSoNguyenMang(lines.get(l))
-listResult = demPhanTuMang(listNumbers)
-output.write(ketQua(listResult) + '\n')
-# result.append(temp)  # bo di cung duoc
+fw.close()
