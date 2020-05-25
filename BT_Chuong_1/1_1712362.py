@@ -67,13 +67,13 @@ def divide_data(n, base_a, base_b):
 fr = open('input.txt', 'r')
 lines = [line[:-1].split() for line in fr.readlines()]
 fr.close()
-#log(lines)
+log(lines)
 
 
 # ghi file
 fw = open('1_1712362.txt', 'w')
 for l in lines:
-    #log(l)
+    log(l)
     result = divide_data(str(l[0]), int(l[1]), int(l[2]))
     fw.write(str(result)+"\n")
 
