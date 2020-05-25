@@ -23,7 +23,7 @@ def converStrArr_to_numArr(strArr):
 
 # tach cac dong trong file thanh mang so nguyen function
 def tachFileThanhMangSoNguyen(file):
-    fr = open(file)
+    fr = open(file, 'r')
     lines = fr.readlines()
     fr.close()
     arrStrOrigin = []
@@ -51,9 +51,19 @@ def tachFileThanhMangSoNguyen(file):
 arrNumber = tachFileThanhMangSoNguyen(argv[1])
 
 
-log(arrNumber)
+# log(arrNumber)
+
+# module equation solve
+def modulos_result(a, b, c, n):
+    return 0
 
 
 # test thu ghi file
-def write_file_result():
-    return 0
+def write_file_result(arrNumber):
+    fw = open('1_1712362.txt', 'w')
+    log(arrNumber)
+
+    fw.close()
+
+
+write_file_result(arrNumber)
