@@ -177,13 +177,25 @@ def write_file_result(arr_number_from_file):
         length_child = result_write[i][0].__len__()
         # log("len child ", i, " = ", length_child_1)
         # log(result_write[i])
+        length_separate_result = result_write[i][0].__len__()
         for j in range(0, length_child):
             # log(j)
             # log(result_write[i][0][j])
-            fw.write(str(result_write[i][0][j])+" ")
-        fw.write("\n")
+
+            # spacing bugs - fixed
+            if(j == length_separate_result-1):
+                fw.write(str(result_write[i][0][j]))
+            else:
+
+                fw.write(str(result_write[i][0][j])+" ")
+        # drop down the line bugs
+        if(i == length_from_file - 1):
+            fw.write("")
+        else:
+            fw.write("\n")
 
     fw.close()
+    log("Write file success!")
 
 
 write_file_result(arr_number_from_file)

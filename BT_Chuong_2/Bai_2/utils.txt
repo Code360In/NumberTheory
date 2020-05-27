@@ -1,0 +1,13 @@
+Đề Bài: đọc file n dòng, xuất kếch quả phi hàm euler, 
+
+Phân tích:
+* Đọc file - tách chuỗi trong file lưu thành mảng
++ cần 1 hàm convert chuỗi thành mảng số
++ loại bỏ phần tử \n mỗi cuối giá trị mảng
+
+- Hàm phi euler trả về giá trị kết quả 
+- Chuyển kếch quả thành chuỗi rồi ghi vào file output
+
+* Ghi file
+- Kếch quả rả về sẽ là mảng số
+- chuyển thành mảng string rồi ghi file, xuống hàng sau 1 kếch quả
