@@ -1,0 +1,35 @@
+tim 23 kha nghich Z 97 =>>> 38
+d = (a,n) = 1 
+
+if d != 1 => khong kha nghich
+
+else 
+ 
+
+function ModuloInverse(a, m);
+begin
+  xa:= 1; xm:= 0;
+  while m ≠ 0 do
+    begin
+      q:= a div m;
+      xr:= xa - q * xm;
+      xa:= xm;
+      xm:= xr;
+      r:= a mod m;
+      a:= m;
+      m:= r;
+    end;
+  Result:= xa;
+end;
+
+17 trong z 132
+
+-31 
+
+
+ax = k (z n)
+
+
+z 85 , x = 95
+-> 95 = 85*1 + 10
+x = 10 = x - n*
