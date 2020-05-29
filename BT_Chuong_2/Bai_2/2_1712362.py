@@ -53,37 +53,6 @@ def get_data_from_file(file_name):
     return result
 
 
-# log(argv[1]) - input txt
-data = get_data_from_file(argv[1])
-log(data)
-
-
-# func ghi kech qua vao file
-# input: ten file, data ghi vao file
-# output: file kech qua, thong bao ghi thanh cong tren console
-
-
-def write_result_to_file(file_name, data):
-    # log("Hello write file")
-    fw = open(file_name, 'w')
-    len_data = data.__len__()
-    for i in range(0, len_data):
-        len_sepated_rs = data[i].__len__()
-        for j in range(0, len_sepated_rs):
-            if(j == len_sepated_rs-1):
-                fw.write(str(data[i][j]))
-            else:
-                fw.write(str(data[i][j])+" ")
-        if(i == len_data - 1):
-            fw.write("")
-        else:
-            fw.write("\n")
-    log("Write file success!")
-    fw.close()
-
-
-write_result_to_file('2_1712362.txt', data)
-
 # func gcd - tien de euclid
 # input: 2 so nguyen a,b
 # output: UCLN cua a,b
@@ -124,8 +93,9 @@ def is_coprimes(a, b):
         return False
 
 
-log(is_coprimes(6, 25))
+# log(is_coprimes(6, 25))
 
+# phi euler handle
 
 # func phi euler
 # input: so nguyen n
@@ -138,11 +108,107 @@ def phi_euler(n):
 
             arr_coprimes_with_n.append(i)
     len = arr_coprimes_with_n.__len__()
-    log(arr_coprimes_with_n)
+    # log(arr_coprimes_with_n)
     if(len >= 1):
         return len
     else:
         return -1
 
 
-log(phi_euler(10))
+# log("phi euler", end=": ")
+# log(phi_euler(10))
+
+
+# handle total divisor of n - tong cac uoc so xu ly
+
+# func find divisor of n, tim cac uoc cua n
+# input: so tu nhien n
+# output: mang cac phan tu la uoc cua n
+def divisor_of_n(n):
+    if(n != 0):
+        result = []
+        for i in range(1, n+1):
+            if(n % i == 0):
+                result.append(i)
+        return result
+    else:
+        return -1
+
+
+# func tinh tong cac uoc cua n
+# input: so tu nhien n
+# output: -1 neu dau vao sai, tong
+def total_devisor_of_n(n):
+    arr_devisor_of_n = divisor_of_n(n)
+    if(arr_devisor_of_n == -1):
+        return -1
+    else:
+        total = 0
+        for i in arr_devisor_of_n:
+            total = i+total
+        return total
+
+
+# log(divisor_of_n(10))
+# log("Tong cac uoc", end=": ")
+# log(total_devisor_of_n(10))
+
+
+# handle number of divisor - xu ly so cac uoc so
+
+# func tinh so cac uoc so cua n
+# input: so tu nhien n
+# output: so cac uoc so cua n
+def number_of_divisor(n):
+    rs = divisor_of_n(n)
+    if(rs == -1):
+        return -1
+    else:
+        len = rs.__len__()
+        return len
+
+
+# for i in range(0, 11):
+#     log(i, end=": ")
+#     log(number_of_divisor(i))
+
+
+# log(argv[1]) - input txt
+data = get_data_from_file(argv[1])
+# log(data)
+
+
+# func ghi kech qua vao file
+# input: ten file, data ghi vao file
+# output: file kech qua, thong bao ghi thanh cong tren console
+
+
+def write_result_to_file(file_name, data):
+    # log("Hello write file")
+    fw = open(file_name, 'w')
+    len_data = data.__len__()
+    # log(data)
+
+    # phi_euler(n)
+    # total_devisor_of_n(n)
+    # number_of_divisor(n)
+    # log(len_data)
+
+    for i in range(0, len_data):
+        n = data[i][0]
+        result_phi_euler = phi_euler(n)
+        result_total_devisor_of_n = total_devisor_of_n(n)
+        result_number_of_divisor = number_of_divisor(n)
+
+        if(i == len_data-1):
+            fw.write(str(result_phi_euler)+" " + str(result_total_devisor_of_n) +
+                     " " + str(result_number_of_divisor))
+        else:
+            fw.write(str(result_phi_euler)+" " + str(result_total_devisor_of_n) +
+                     " " + str(result_number_of_divisor)+"\n")
+
+    log("Write file success!")
+    fw.close()
+
+
+write_result_to_file('2_1712362.txt', data)

@@ -1,4 +1,4 @@
-Đề Bài: đọc file n dòng, xuất kếch quả phi hàm euler, 
+Đề Bài: đọc file n dòng, xuất kếch quả phi hàm euler, tổng các ước số xm(n) , số các ước số t(n)
 
 Phân tích:
 * Đọc file - tách chuỗi trong file lưu thành mảng
@@ -11,6 +11,10 @@ Phân tích:
 - func gcd
 - func kt snto
 - func phi euler
+
+- tổng các ước số
+- VD: n = 10 -> {1,2,5,10} -> s = 18, n = 12 -> {1,2,3,4,6,12} -> s = 28
+
 
 
 
@@ -123,6 +127,21 @@ def phi_euler(n):
         return -1
 
 
+/****************/
+- Tổng các ước số
+- n = 10 
+- divisor_of_n =[1,2,5,10]
+-> func find all divisor_of_n 
+- get len of it
+- func total_divisor_of_n
+
+
+/****************/
+- số các ước số 
+- n = 10
+- divisor_of_n = [1,2,5,10]
+- count = 4
+-> func number of divisor -> divisor_of_n.len
 
 
 
