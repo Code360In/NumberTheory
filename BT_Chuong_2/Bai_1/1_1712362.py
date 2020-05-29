@@ -63,6 +63,8 @@ def gcd(a, b):
         a = t
     return a
 
+
+
 # ham tim a kha nghich trong Zn
 
 

@@ -6,8 +6,129 @@ Phân tích:
 + loại bỏ phần tử \n mỗi cuối giá trị mảng
 
 - Hàm phi euler trả về giá trị kết quả 
+- VD: 10 -> 4 {1,3,7,9}
+- func kiểm tra snto cùng nhau - 2 so la stn cung nhau <=> (a,b) = 1
+- func gcd
+- func kt snto
+- func phi euler
+
+
+
 - Chuyển kếch quả thành chuỗi rồi ghi vào file output
 
 * Ghi file
 - Kếch quả rả về sẽ là mảng số
 - chuyển thành mảng string rồi ghi file, xuống hàng sau 1 kếch quả
+
+
+
+
+
+/**********************/
+// test UCLN
+def gcd(a, b):
+    while b != 0:
+        t = b
+        b = a % b
+        a = t
+    return a
+-- euclid
+a  b  
+10 6        (10,6)
+10 =6*1+4 - (6,4)
+6 = 4*1+2   (4,2)
+4 = 2*2 + 0 (2,0) ->> 2
+2 = 0*2 + 0
+-- 
+def gcd(a,b):
+    while(b!=0):
+    // can 1 bien r = a % b 
+    temp = b
+    r = a % b 
+    b = r // nhan thay b luc nay = r 
+    // nhan thay a = b cu~ => temp 
+    a= temp 
+
+    // r = a%b , b = r => b = a%b
+    
+
+
+    return a
+
+10 6
+r = 4
+b=4
+a=6
+
+r = 2
+b=2
+a=4
+
+r=0
+b=0
+a= 4
+/*******************************/
+test coprimes - snto cung nhau
+13 17
+
+is 13 primes && is 17 primes 
+    if true
+        is_gcd(13,17) == 1 ?
+            if true
+                return true
+            if false 
+                return false
+    if false
+        return false
+
+def coprimes(a,b):
+// nhầm chỗ này - a,b không cần là 2 stn vẫn là 2 số nto cùng nhau
+    is_a_primes = is_primes(a)
+    is_b_primes = is_primes(b)
+        if(is_a_primes&&is_b_primes):
+            ab_gcd = gcd(a,b)
+            if(ab_gcd==1):
+                return true
+            else:
+                return false
+        else:
+            return false
+
+/*******************/
+// test phi ham euler - totient func
+phi hàm euler của 1 số n là tổng số các số nhỏ hơn hoặc bằng n và nguyên tố cùng nhau với n
+n = 10
+tìm tất cả các số <=n và coprimes with n 
+arr_coprimes_with_n = []
+    for i = 0 to i <= n
+    if(is_coprimes(i,n))
+        arr_coprimes_with_n.push(i)
+    i++
+len = arr_coprimes_with_n.len()
+if(len>=1)
+    return len 
+else 
+    return -1
+
+--- cod python
+def phi_euler(n):
+    arr_coprimes_with_n = []
+    for i in range (0,n+1):
+        if(is_coprimes(i,n)):
+            arr_coprimes_with_n.append(i)
+    len = arr_coprimes_with_n.len()
+    if(len>=1):
+        return len
+    else:
+        return -1
+
+
+
+
+
+
+
+
+
+
+

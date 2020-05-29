@@ -21,7 +21,9 @@ def convert_str_arr_to_num_arr(str_arr):
 # log(temp)
 
 
-# doc file
+# func: lay data tu file - chuyen thanh mang
+# input: ten file
+# output: mang data
 def get_data_from_file(file_name):
     # log(file_name)
     fr = open(file_name, 'r')
@@ -56,10 +58,14 @@ data = get_data_from_file(argv[1])
 log(data)
 
 
-def write_result_to_file(file_name, data):
-    log("Hello write file")
-    fw = open(file_name, 'w')
+# func ghi kech qua vao file
+# input: ten file, data ghi vao file
+# output: file kech qua, thong bao ghi thanh cong tren console
 
+
+def write_result_to_file(file_name, data):
+    # log("Hello write file")
+    fw = open(file_name, 'w')
     len_data = data.__len__()
     for i in range(0, len_data):
         len_sepated_rs = data[i].__len__()
@@ -72,9 +78,71 @@ def write_result_to_file(file_name, data):
             fw.write("")
         else:
             fw.write("\n")
-
     log("Write file success!")
     fw.close()
 
 
 write_result_to_file('2_1712362.txt', data)
+
+# func gcd - tien de euclid
+# input: 2 so nguyen a,b
+# output: UCLN cua a,b
+
+
+def gcd(a, b):
+    while b != 0:
+        temp = b
+        b = a % b
+        a = temp
+    return a
+
+
+# func kt so ng to
+# input: n - so nguyen bat ky
+# output: True or False
+
+
+def is_primes(n):
+    if(n < 2):
+        return False
+    else:
+        for i in range(2, n):
+            if(n % i == 0):
+                return False
+        return True
+
+# func kt stn cung nhau
+# input: 2 so nguyen
+# output: True or false
+
+
+def is_coprimes(a, b):
+    ab_gcd = gcd(a, b)
+    if(ab_gcd == 1):
+        return True
+    else:
+        return False
+
+
+log(is_coprimes(6, 25))
+
+
+# func phi euler
+# input: so nguyen n
+# ouput: tong so cac so nto cung nhau voi n hoac -1 neu khong ton tai
+def phi_euler(n):
+    arr_coprimes_with_n = []
+    for i in range(1, n+1):
+        #log(i, n)
+        if(is_coprimes(i, n) == True):
+
+            arr_coprimes_with_n.append(i)
+    len = arr_coprimes_with_n.__len__()
+    log(arr_coprimes_with_n)
+    if(len >= 1):
+        return len
+    else:
+        return -1
+
+
+log(phi_euler(10))
