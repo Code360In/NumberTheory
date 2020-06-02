@@ -1,0 +1,20 @@
+Đề: a n, xuất kết quả jacobi a n
+
+- Jacobi: Cho n=p1^k...pn^k và (a,n)=1
+-> Hàm gcd
+-> hàm tính legendre
+- Legendre: cho p lẻ, a nguyên không chia hết cho p
+[a,p]= 1 if a là thặng dư bình phương mod p
+[a,p]= -1 if not
+-> hàm tìm thặng dư bình phương mod p
+
+
+
+
+- func jacobi
+if gcd(a,n)!=1
+    return -1
+else
+    mul(legendre[i]...)
+
+
