@@ -1,20 +1,91 @@
-Đề: a n, xuất kết quả jacobi a n
+Đề: đọc file chứa a n, k dòng, xuất kết quả tính ký hiệu jacobi vào file khác
+------ PHÂN TÍCH -----------
 
 - Jacobi: Cho n=p1^k...pn^k và (a,n)=1
--> Hàm gcd
+jacobi(a,n)=(a,p1)^k1.(a,p2)^k2...(a,pn)^kn
+Với (a,pi)^ki là ký hiệu legendre
+        
+-> Hàm tìm ước chung lớn nhất
+- UCLN(a,b), là số nguyên dương lớn nhất là ước của a,b
+- Những trò trước chơi gcd rồi giờ chơi cách khác
+- Nhận thấy: (a,b)[a,b] = ab
+- ta có thể tìm [a,b] rồi tính (a,b)
+- nhận thấy khi a = b = 0 thì gãy nênh thôi quay về oclid
+
+- mã giả:
+func gcd(a,b):
+    int lcm_ab = lcm(a,b)
+    int mul_ab = abs(a,b) 
+    int gcd = mul_ab/lcm_ab
+    return gcd
+
+- VD: (10,4)
+- 10 = 2*4+2  a = 4 = b , b = a%b
+- 4  = 2*2+0
+--> 2
+- temp = b
+- b = a%b
+- a = temp 
+- 
+
+
+-> hàm tìm BCNN(a,b)
+- BCNN(a,b) = [a,b], LCM, lowest common multiple
+- [a,b] là số nguyên dương nhỏ nhất chia hếch cho a và b
+- Nhận thấy max(a,b)<=lcm(a,b)<=ab
+- cho i chạy trong khoảng max(a,b) đếnh ab
+- nếu i chia hếch a và b lần đầu tiên thì i chính là lcm - lowest common multiple
+
+- mã giả:
+func lcm(a,b):
+    int max_ab = max(a,b)
+    int mul_ab=ab
+    int lcm =0
+        for i from max_ab to mul_ab do
+            if(i%a==0 and i%b==0)
+                lcm = i
+                break
+    return lcm
+    
+
+-> hàm max(a,b) tìm 2 số lớn nhất giữa 2 số a,b 
+- mã giả:
+func max(a,b):
+    return a>b?a:b
+
+
 -> hàm tính legendre
-- Legendre: cho p lẻ, a nguyên không chia hết cho p
-[a,p]= 1 if a là thặng dư bình phương mod p
-[a,p]= -1 if not
+
+- Legendre: cho p nguyên tố lẻ, a nguyên không chia hết cho p
+legendre(a,p)= 1 if a là thặng dư bình phương mod p
+legendre(a,p)= -1 if not
+
+-> hàm kt số nguyên tố
+- Số nguyên tố là số tự nhiên lớn hơn 1 và không thể hình thành từ 2 số tự nhiên nhỏ hơn nhân nhau
+-  
+- func is_primes(n):
+    if(n<=1)
+        return -1
+    else
+        for i from 2 to n 
+            if(n%i==0)
+                return false
+        return true
+        
+
+
+
 -> hàm tìm thặng dư bình phương mod p
 
 
 
 
-- func jacobi
+- func jacobi_handle(a,n)
 if gcd(a,n)!=1
     return -1
 else
-    mul(legendre[i]...)
+    legendre_handle()
 
+- func legendre_handle(a,p)
+iif
 

@@ -1,6 +1,87 @@
 from sys import argv
 script, input = argv
 
+log = print
+
+
+# problem handle
+# -------------------------------------------------------------------
+
+
+# func find maximun of a,b
+# input: number a,b
+# output: max of a,b
+
+
+# def find_max_ab(a, b):
+#     return a if a >= b else b
+
+# func find BCNN, lowest common multiple
+# input: number a,b
+# output: lcm of them
+
+
+# def lcm(a, b):
+#     max_ab = find_max_ab(a, b)
+#     mul_ab = abs(a*b)
+#     lcm = 0
+#     for i in range(max_ab, mul_ab+1):
+#         if(i % a == 0 and i % b == 0):
+#             lcm = i
+#             break
+#     return lcm
+
+
+# log(lcm(1, 1))
+
+
+# def gcd(a, b):
+#     if(a == 0 and b == 0):
+#         return -1
+#     else:
+#         lcm_ab = lcm(a, b)
+#         mul_ab = abs(a*b)
+#         gcd = mul_ab/lcm_ab
+#     return int(gcd)
+
+# a = b = 0 -------------------------------------- error
+
+# func find UCLN, greates common divisor
+# input: number a,b
+# output: greates common divsor of them
+
+
+def gcd(a, b):
+    while b != 0:
+        temp = b
+        b = a % b
+        a = temp
+    return a
+
+
+# log(gcd(0, 0))
+
+
+# func check number n is primes
+# input: number n
+# output: true or false
+
+
+def is_primes(n):
+    if(n < 2):
+        return False
+    else:
+        for i in range(2, n):
+            if(n % i == 0):
+                return False
+        return True
+
+
+# log(is_primes(5))
+
+
+# file handle
+# -------------------------------------------------------------------
 
 # func convert string array from file to number array
 # input: array string
