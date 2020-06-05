@@ -77,4 +77,4 @@ def write_result_to_file(file_name, data):
     fw.close()
 
 
-write_result_to_file('2_1712362.txt', data)
+write_result_to_file('output.txt', data)

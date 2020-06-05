@@ -64,7 +64,6 @@ def gcd(a, b):
     return a
 
 
-
 # ham tim a kha nghich trong Zn
 
 
@@ -189,15 +188,13 @@ def write_file_result(arr_number_from_file):
                 fw.write(str(result_write[i][0][j]))
             else:
 
-                fw.write(str(result_write[i][0][j])+" ")
+                fw.write(str(result_write[i][0][j])+",")
         # drop down the line bugs
         if(i == length_from_file - 1):
             fw.write("")
         else:
             fw.write("\n")
-
     fw.close()
-    log("Write file success!")
 
 
 write_file_result(arr_number_from_file)
