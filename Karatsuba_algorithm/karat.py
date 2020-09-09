@@ -46,16 +46,17 @@ def superKaratsuba(x, y, base):
     else:
         max_length = max(len(str(x)), len(str(y)))
         m = max_length//2
-        a = x//(base**m)
-        b = x % (base**m)
-        c = y//(base**m)
-        d = y % (base**m)
-        z0 = superKaratsuba(a, c, base)
-        z2 = superKaratsuba(b, d, base)
-        z1 = superKaratsuba(a+b, c+d, base)-z0-z2
-        return z2*(base**(2*m))+z1*(base**(m))+z0
+        if(base == 2):
+            a = int(bin(x//(base**m)))
+            b = int(bin(x % (base**m)))
+            c = int(bin(y//(base**m)))
+            d = int(bin(y % (base**m)))
+            z0 = superKaratsuba(a, c, base)
+            z2 = superKaratsuba(b, d, base)
+            z1 = superKaratsuba(a+b, c+d, base)-z0-z2
+            return bin(z2*(base**(2*m))+z1*(base**(m))+z0)
 
 
-log(karat(1234, 4321))
+log(karat(123, 321))
 log(myKaratsuba(1234, 4321))
-log(superKaratsuba(10, 11, 2))
+# log(superKaratsuba(10, 11, 2))
