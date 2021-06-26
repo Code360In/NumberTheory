@@ -1,2 +1,2 @@
-# python_playground
+# Number Theory
 Lý thuyết số
